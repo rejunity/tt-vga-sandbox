@@ -131,7 +131,7 @@ module worley_noise_generator (
   assign points_y[3] = 500 - (t >> 2);
 
 //#(11,4,3)
-  wire [15:0] sq0x_; approx_signed_square #(12,4,4) sq0x(.a(x - points_x[0]), .p_approx(sq0x_));
+  wire [15:0] sq0x_; approx_signed_square #(12,5,4) sq0x(.a(x - points_x[0]), .p_approx(sq0x_));
   wire [15:0] sq0y_; approx_signed_square #(12,5,4) sq0y(.a(y - points_y[0]), .p_approx(sq0y_));
   wire [15:0] sq1x_; approx_signed_square #(12,4,3) sq1x(.a(x - points_x[1]), .p_approx(sq1x_));
   wire [15:0] sq1y_; approx_signed_square #(12,4,3) sq1y(.a(y - points_y[1]), .p_approx(sq1y_));
@@ -208,13 +208,13 @@ endmodule
 
 
 module approx_signed_square #(
-    parameter integer W = 11,
+    parameter integer W = 12,
     parameter integer T = 4,  // truncate this many LSBs
     parameter integer R = 3   // use top R bits of low part to approximate cross-term
 )(
     input  wire signed [W-1:0] a,
-    // output wire signed [2*W-1:0] p_approx
-    output wire signed [15:0] p_approx
+    output wire [2*W-1:0] p_approx
+    // output wire signed [15:0] p_approx
 );
     // -------------------------
     // Guards
