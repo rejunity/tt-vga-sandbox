@@ -169,19 +169,19 @@ module worley_noise_generator (
     end
   endfunction
 
-  wire [15:0] distance1 = sq0x_ + sq0y_;
-  wire [15:0] distance2 = sq1x_ + sq1y_;
-  wire [15:0] distance3 = sq2x_ + sq2y_;
-  wire [15:0] distance4 = sq3x_ + sq3y_;
+  // wire [15:0] distance1 = sq0x_ + sq0y_;
+  // wire [15:0] distance2 = sq1x_ + sq1y_;
+  // wire [15:0] distance3 = sq2x_ + sq2y_;
+  // wire [15:0] distance4 = sq3x_ + sq3y_;
   // wire [15:0] distance1 = dot(x - points_x[0], y - points_y[0]);
   // wire [15:0] distance2 = dot(x - points_x[1], y - points_y[1]);
   // wire [15:0] distance3 = dot(x - points_x[2], y - points_y[2]);
   // wire [15:0] distance4 = dot(x - points_x[3], y - points_y[3]);
 
-  // wire [15:0] distance1 = (x - points_x[0]) * (x - points_x[0]) + (y - points_y[0]) * (y - points_y[0]);
-  // wire [15:0] distance2 = (x - points_x[1]) * (x - points_x[1]) + (y - points_y[1]) * (y - points_y[1]);
-  // wire [15:0] distance3 = (x - points_x[2]) * (x - points_x[2]) + (y - points_y[2]) * (y - points_y[2]);
-  // wire [15:0] distance4 = (x - points_x[3]) * (x - points_x[3]) + (y - points_y[3]) * (y - points_y[3]);
+  wire [15:0] distance1 = (x - points_x[0]) * (x - points_x[0]) + (y - points_y[0]) * (y - points_y[0]);
+  wire [15:0] distance2 = (x - points_x[1]) * (x - points_x[1]) + (y - points_y[1]) * (y - points_y[1]);
+  wire [15:0] distance3 = (x - points_x[2]) * (x - points_x[2]) + (y - points_y[2]) * (y - points_y[2]);
+  wire [15:0] distance4 = (x - points_x[3]) * (x - points_x[3]) + (y - points_y[3]) * (y - points_y[3]);
 
   // wire [15:0] distance1 = square(x - points_x[0]) + square(y - points_y[0]);
   // wire [15:0] distance2 = square(x - points_x[1]) + square(y - points_y[1]);
