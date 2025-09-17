@@ -6,7 +6,7 @@
 
 `default_nettype none
 
-module tt_um_rejunity_vga_playground(
+module tt_um_vga_example(
   input  wire [7:0] ui_in,    // Dedicated inputs
   output wire [7:0] uo_out,   // Dedicated outputs
   input  wire [7:0] uio_in,   // IOs: Input path
@@ -114,13 +114,12 @@ module worley_noise_generator (
     input wire [9:0] x,
     input wire [9:0] y,
     input wire [19:0] t,
-    // output reg [7:0] noise
-    output reg [17:0] noise
+    output wire [17:0] noise
 );
 
   // Define a small fixed grid of points
-  reg [8:0] points_x[0:3];
-  reg [8:0] points_y[0:3];
+  wire [8:0] points_x[0:3];
+  wire [8:0] points_y[0:3];
 
   assign points_x[0] = 100 + t;
   assign points_y[0] = 100 - t;
@@ -132,14 +131,14 @@ module worley_noise_generator (
   assign points_y[3] = 500 - (t >> 2);
 
 //#(11,4,3)
-  wire [15:0] sq0x_; approx_signed_square #(11,4,4) sq0x(.a(x - points_x[0]), .p_approx(sq0x_));
-  wire [15:0] sq0y_; approx_signed_square #(11,4,4) sq0y(.a(y - points_y[0]), .p_approx(sq0y_));
-  wire [15:0] sq1x_; approx_signed_square #(11,4,3) sq1x(.a(x - points_x[1]), .p_approx(sq1x_));
-  wire [15:0] sq1y_; approx_signed_square #(11,4,3) sq1y(.a(y - points_y[1]), .p_approx(sq1y_));
-  wire [15:0] sq2x_; approx_signed_square #(11,4,3) sq2x(.a(x - points_x[2]), .p_approx(sq2x_));
-  wire [15:0] sq2y_; approx_signed_square #(11,4,3) sq2y(.a(y - points_y[2]), .p_approx(sq2y_));
-  wire [15:0] sq3x_; approx_signed_square #(11,4,3) sq3x(.a(x - points_x[3]), .p_approx(sq3x_));
-  wire [15:0] sq3y_; approx_signed_square #(11,4,3) sq3y(.a(y - points_y[3]), .p_approx(sq3y_));
+  wire [15:0] sq0x_; approx_signed_square #(12,4,4) sq0x(.a(x - points_x[0]), .p_approx(sq0x_));
+  wire [15:0] sq0y_; approx_signed_square #(12,5,4) sq0y(.a(y - points_y[0]), .p_approx(sq0y_));
+  wire [15:0] sq1x_; approx_signed_square #(12,4,3) sq1x(.a(x - points_x[1]), .p_approx(sq1x_));
+  wire [15:0] sq1y_; approx_signed_square #(12,4,3) sq1y(.a(y - points_y[1]), .p_approx(sq1y_));
+  wire [15:0] sq2x_; approx_signed_square #(12,4,3) sq2x(.a(x - points_x[2]), .p_approx(sq2x_));
+  wire [15:0] sq2y_; approx_signed_square #(12,4,3) sq2y(.a(y - points_y[2]), .p_approx(sq2y_));
+  wire [15:0] sq3x_; approx_signed_square #(12,4,3) sq3x(.a(x - points_x[3]), .p_approx(sq3x_));
+  wire [15:0] sq3y_; approx_signed_square #(12,4,3) sq3y(.a(y - points_y[3]), .p_approx(sq3y_));
   
 
   function [15:0] square;
