@@ -5,6 +5,7 @@
 - Dithering
 - Reduced precision multipliers
 - 2 TinyTapeout tiles
+- Standard [TinyVGA PMOD](https://store.tinytapeout.com/products/TinyVGA-Pmod-p678647356) output
  
 <img width="1284" height="966" alt="image" src="https://github.com/user-attachments/assets/c90e8711-964e-4c4a-9dcf-7f39f07b4a3e" />
 
